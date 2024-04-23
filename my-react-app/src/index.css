@@ -36,6 +36,18 @@ a {
   }
 }
 
+video{
+  width: auto;
+  height: 100vh;
+  object-fit: fill;
+  padding: 0;
+ z-index: -1;
+  display: flex;
+  
+  position: absolute;
+  
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,6 +1,7 @@
 
 import './App.css';
 import SideBar from './components/sidebar';
+import video from './images/video.mp4';
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,10 @@ function App() {
     <div className="App">
 
       {/* <h1 className='text-red-500'>Hello World!</h1> */}
+      <div >
+      
+      <video src={video}  muted autoPlay loop ></video>
+      </div>
 
       
      
@@ -23,8 +28,10 @@ function App() {
       
       
     </div>
+    
     <SideBar/>
-
+   
+    
     </>
 
    
