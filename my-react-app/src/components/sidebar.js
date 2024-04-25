@@ -11,7 +11,7 @@ const SideBar = () =>{
   const [touch,setTouch]=useState(false)
   return (
  
-    <div className='grid grid-cols-2 bg-black bg-opacity-0 h-screen w-24 z-12 fixed'>
+    <div className='grid grid-cols-2 bg-black bg-opacity-0 '>
       <div onMouseEnter={()=> setTouch(true)} on onMouseLeave={()=> setTouch(false)}>
  
         <img className='w-28 pt-30 ml-5' src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" alt="" />
