@@ -31,6 +31,7 @@ margin-bottom: 20px; /* Add some spacing between paragraphs */
 text-align: justify;
 color:white;
 
+
 `;
 
 const SButton =styled.button`

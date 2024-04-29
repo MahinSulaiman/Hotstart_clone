@@ -59,12 +59,13 @@ const Home=()=>{
             
             <SideBar/>
             <Title/>
+            
             <MovieList/>
 
 
             
 
-               {/* <Suggestion/> */}
+              
 
          </HomeDiv>
 
