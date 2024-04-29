@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import {React,useState} from "react";
+import styled from "styled-components"
 import user from '../images/user.svg'
 import search from '../images/search.svg'
 import home from '../images/home.svg'
@@ -6,39 +7,171 @@ import tv from '../images/tv.svg'
 import movie from '../images/movie.svg'
 import sports from '../images/sports.svg'
 import category from '../images/category.svg'
+
+
+
+const Sub=styled.button`
+
+  border:none;
+  border-radius: 35px;
+  color:orange;
+  background-color: rgba(255, 165, 0, 0.2);
+  margin-top:5px;
+  font-size: small;
+  width:88px;
+  height:20px;
+  margin-left:10px;
+  // opacity: 0.3;
+  
+  
+  
+
+`;
+
+
+const SidebarContainer = styled.div`
+  width: 110px;
+  height: 100vh;;
+  background-color: #333;
+  // padding: 20px;
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0);
+  // background-color:black;
+  z-index: 1;
+  position:fixed;
+  // background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 5%, transparent 100%);
+  
+`;
+
+
+
+
+
+
+const IconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
  
-const SideBar = () =>{
-  const [touch,setTouch]=useState(false)
-  return (
+  gap: 35px; 
+
+
  
-    <div className='grid grid-cols-2 bg-black bg-opacity-0 '>
-      <div onMouseEnter={()=> setTouch(true)} on onMouseLeave={()=> setTouch(false)}>
+`;
+
+const LogoContainer = styled.div`
+  
+
+padding-top: 25px;
+padding-left: 30px;
  
-        <img className='w-28 pt-30 ml-5' src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" alt="" />
-        <a className='w-8  ml-5 text-ss text-orange-300 rounded-full' href='' >Subscribe</a>  
+`;
+
+const Tooltip = styled.span`
+
  
-        <img src={user}  className='w-5 ml-9 mt-28 cursor-pointer ' fill='white' alt="" />
-        <img src={search}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-        <img src={home}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-        <img src={tv}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-        <img src={movie}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-        <img src={sports}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-        <img src={category}  className='w-5 ml-9 mt-8 cursor-pointer ' fill='white' alt="" />
-      </div>
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(10px, -50%);
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+  // visibility: hidden;
+  visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
+  width: fit-content; 
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0);
  
-     {touch && <div className='z-10 ml-12 w-20 bg-opacity-25 position-fixed h-fit font-bold text-base text-slate-300'>
-        <h4 className='mt-44'>My Space</h4>
-        <h4 className='mt-6'>Search</h4>
-        <h4 className='mt-8'>Home</h4>
-        <h4 className='mt-8'>TV</h4>
-        <h4 className='mt-6'>Movies</h4>
-        <h4 className='mt-8'>Sports</h4>
-        <h4 className='mt-4'>Category</h4>
-      </div>}
  
-    </div>
-  )
-}
- 
-export default SideBar
- 
+`;
+
+const IconWrapper = styled.div`
+  position: relative;
+  
+  &:hover  ${Tooltip} {
+   
+    font-weight: bold;
+    font-size: 120%;
+    
+  }
+`;
+
+
+
+const SideBar=()=>{
+
+  
+    const [tooltipVisible, setTooltipVisible] = useState(false);
+  
+    const handleIconHover = () => {
+      setTooltipVisible(true);
+    };
+  
+    const handleIconLeave = () => {
+      setTooltipVisible(false);
+    };
+    return(
+       
+      
+        <SidebarContainer >
+          <LogoContainer>
+            <img alt="Disney+ Hotstar" src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" class="" aria-hidden="false" width={"50px"} height={"35px"} />
+           
+            
+
+            </LogoContainer>
+
+            <Sub><span>Subscribe</span></Sub> 
+
+            <IconContainer onMouseEnter={handleIconHover}
+          onMouseLeave={handleIconLeave}>
+              <IconWrapper>
+        <img src={user}   fill='white' alt="" />
+        <Tooltip visible={tooltipVisible}>My Space</Tooltip>
+        </IconWrapper>
+       <IconWrapper>
+        <img src={search}   fill='white' alt="" />
+        <Tooltip visible={tooltipVisible}>Search</Tooltip>
+        </IconWrapper>
+        <IconWrapper>
+        <img src={home}   fill='white' alt="" />
+         <Tooltip visible={tooltipVisible} >Home</Tooltip>
+        </IconWrapper>
+
+        <IconWrapper>
+        <img src={tv}   fill='white' alt="" />
+         <Tooltip visible={tooltipVisible}>TV</Tooltip>
+        </IconWrapper>
+
+        <IconWrapper>
+        <img src={movie}   fill='white' alt="" />
+         <Tooltip visible={tooltipVisible}>Movies</Tooltip>
+        </IconWrapper>
+
+        <IconWrapper>
+        <img src={sports}   fill='white' alt="" />
+         <Tooltip visible={tooltipVisible}>Sports</Tooltip>
+        </IconWrapper>
+
+        <IconWrapper>
+        <img src={category}   fill='white' alt="" />
+         <Tooltip visible={tooltipVisible}>Categories</Tooltip>
+        </IconWrapper>
+            </IconContainer>
+        </SidebarContainer>
+
+        
+            
+        
+        
+    )
+
+};
+
+
+
+
+export default SideBar;

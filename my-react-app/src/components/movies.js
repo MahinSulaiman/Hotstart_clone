@@ -1,18 +1,48 @@
 import React from 'react'
-// import newimg from '../images/Newrelease.png'
-// function MovieList() {
-// const getMovies=()=>{
-//     try {
-//         fetch("https://dummyapi.online/api/movies")
-//         .then(res=>res.json())
-//         .then(json=>console.log(json))
-//     } catch (error) {
-//         console.log(error);
-//     }
-//   getMovies()
- 
-// }
+
 import { useEffect, useState } from 'react';
+import styled from "styled-components";
+
+
+
+const CardDiv=styled.div`
+
+    
+    
+    margin-left:120px;
+    transition: transform 0.5s ease-in-out;
+    display:flex;
+    gap:10px;
+    position:absolute;
+    margin-top:100px;
+    top:400px;
+    
+
+   
+    
+
+`;
+
+const ImageContainer = styled.div`
+background-color:red;
+
+width :150px;
+height:200px;
+ 
+  &:hover {
+    transform: scale(1.8);
+    // width:300px;
+    // height:150px;
+    img{
+      height:100px;
+  }
+
+    
+ 
+  }
+`;
+
+
  
 function MovieList() {
  
@@ -37,19 +67,18 @@ function MovieList() {
     }, []);
   
   return (
-      <div className="flex overflow-x-auto  ">
-        {/* <div className="flex flex-wrap   max-w-sm rounded overflow-hidden shadow-lg"> */}
-              {/* <img className="w-full" src={newimg} alt=""/> */}
-        <div className="flex space-x-4 z-34 pt-44">
-            <h1 className="w-full text-center">M</h1>
-            {/* Render image URLs */}
-            {imageUrls.map((url, index) => (
-                    <img key={index} src={url} alt={`Movie Poster ${index}`} className="w-48 h-64 mx-2 my-2" />
+
+
+<CardDiv>
+{imageUrls.map((url, index) => (
+  <ImageContainer key={index}>
+        <img key={index} src={url} alt={`Movie Poster ${index}`} height="200px" width="150px" />
+
+        </ImageContainer>
       ))}
-    </div>
-          </div>
-    //   </div>
-  )
+    
+</CardDiv>
+)
 }
  
 export default MovieList;
