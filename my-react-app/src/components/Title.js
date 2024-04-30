@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const TitleDiv=styled.div`
 position: absolute;
-top: 20px; /* Adjust this value as needed */
+// top: 20px; 
 
 margin-left:130px;
 margin-top:130px;
@@ -17,6 +17,7 @@ z-index: 1;
 const Image = styled.img`
   width: 240px;
   height: 100px;
+  padding-bottom:30px;
 //   opacity: 0.6; /* Set opacity to make the image transparent */
 `;
 
@@ -79,7 +80,7 @@ const Title=()=>{
     return(
         <TitleDiv>
         <Image src="https://img10.hotstar.com/image/upload/f_auto,h_124/sources/r1/cms/prod/6589/1366589-t-d3c00f1f2831" alt="hridayam"/>
-        <h4>Blockbuster</h4>
+        <h4 style={{color:"yellow",paddingBottom:"15px"}}>Blockbuster</h4>
         <h3>2022 . 2h 51m . Malayalam . <span>U/A 13+</span></h3>
         <Txt>From carefree college days to becoming a successful wedding<br/> 
             photographer, this coming-of-age story depicts the colours of<br/>

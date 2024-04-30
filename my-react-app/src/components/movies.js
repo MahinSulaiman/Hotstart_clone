@@ -1,44 +1,44 @@
-import React from 'react'
-
-import { useEffect, useState } from 'react';
+import {React,useState,useEffect} from "react";
 import styled from "styled-components";
 
 
 
-const CardDiv=styled.div`
-    margin-left:130px;
-    transition: transform 0.5s ease-in-out;
-    display:flex;
-    gap:10px;
-    position:absolute;
-   
-    margin-top:120px;
-    top:400px;
-    // overflow-x:hidden;
-    
-   
+const ContainerDiv=styled.div`
 
-   
+   position:relative;
+   display: inline-flex;
+//   justify-content: space-between;
+//   padding: 0 20px;
+gap:20px;
+   margin-left:30px;
     
+
 
 `;
 
-const ImageContainer = styled.div`
+const CardDiv=styled.div`
 
-background-color:red;
+  
+overflow: clip;
 
-width :150px;
-height:200px;
- 
-  &:hover {
-    transform: scale(1.8);
-    // width:300px;
-    // height:150px;
-    img{
-      height:100px;
-  }
-  
-  
+    width :150px;
+    height:200px;
+    background-color:red;
+    // margin:150px;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover{
+        transform: scale(1.8) ;
+        img{
+            height:75px;
+
+        }
+       
+    }
+
+    
+    
+
 `;
 
 const Overlay = styled.div`
@@ -92,18 +92,38 @@ border-radius: 5px;
   text-align: justify;
  
  `;
- 
 
  
-function MovieList() {
- 
+
+ const ScrollButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+`;
+
+const LeftButton = styled(ScrollButton)`
+  left: 0;
+`;
+
+const RightButton = styled(ScrollButton)`
+  right: 100px;
+`;
+
+const MovieList = ({ movieDataURL }) =>{
+
     const [imageUrls, setImageUrls] = useState([]);
     const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [visibleImages, setVisibleImages] = useState(7);
+    const [scrollPosition, setScrollPosition] = useState(0);
+    // const [visibleImages, setVisibleImages] = useState(7);
   
     const getData = async () => {
       try {
-        const resp = await fetch('https://api.sampleapis.com/movies/family');
+        const resp = await fetch(movieDataURL);
         const movies = await resp.json();
         
         // Extract image URLs from movie data
@@ -117,27 +137,35 @@ function MovieList() {
   
     useEffect(() => {
       getData();
-    }, []);
+    }, [getData]);
 
-    const handleScrollButtonClick = () => {
-      setVisibleImages(prev => prev + 5);
-    };
-  
-  return (
+    const handleLeftScroll = () => {
+        setScrollPosition((prevPosition) =>
+          Math.max(0, prevPosition - 6)
+        );
+      };
+    
+      const handleRightScroll = () => {
+        setScrollPosition((prevPosition) =>
+          Math.min(prevPosition + 6, imageUrls.length - 6)
+        );
+      };
 
-<>
+      
 
+    return(
+        <>
+        {/* <Heading>Family Movies</Heading> */}
+<ContainerDiv>
+    
+{imageUrls.slice(scrollPosition, scrollPosition + 7).map((url, index)  => (
 
-<CardDiv>
+            <CardDiv  key={index + scrollPosition}
+            onMouseEnter={() => setHoveredIndex(index + scrollPosition)}
+            onMouseLeave={() => setHoveredIndex(null)}>
+            <img key={index} src={url} alt={`Movie Poster ${index}`} height="200px" width="150px"/>
 
-  
-{imageUrls.slice(0, visibleImages).map((url, index) => (
-  <ImageContainer   key={index}
-  onMouseEnter={() => setHoveredIndex(index)}
-  onMouseLeave={() => setHoveredIndex(null)}>
-        <img key={index} src={url} alt={`Movie Poster ${index}`} height="200px" width="150px" />
-
-        {hoveredIndex === index && (
+            {hoveredIndex === index+scrollPosition && (
             <Overlay>
               <Button>Click me</Button>
               <SmallButton>+</SmallButton>
@@ -149,22 +177,18 @@ photographer, this coming-of-age story depicts the colours of
 Arun Neelakandan's exciting life.</Text>
             </Overlay>
           )}
-        
+            </CardDiv>
 
-        
+            
+))}
 
-        </ImageContainer>
-      ))}
 
-{visibleImages < imageUrls.length && (
-        <Button onClick={handleScrollButtonClick}>Scroll for more</Button>
-      )}
-    
-</CardDiv>
+      <LeftButton onClick={handleLeftScroll}>{'<'}</LeftButton>
+        <RightButton onClick={handleRightScroll}>{'>'}</RightButton>
+</ContainerDiv>
 </>
-)
+
+    )
 }
 
- 
 export default MovieList;
- 

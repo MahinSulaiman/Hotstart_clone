@@ -52,7 +52,7 @@ const IconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 90px;
+  margin-top: 70px;
  
   gap: 35px; 
 
@@ -63,7 +63,7 @@ const IconContainer = styled.div`
 const LogoContainer = styled.div`
   
 
-padding-top: 25px;
+padding-top: 30px;
 padding-left: 30px;
  
 `;
