@@ -91,12 +91,18 @@ const Tooltip = styled.span`
 const IconWrapper = styled.div`
   position: relative;
   
-  &:hover  ${Tooltip} {
+  &:hover {
+    scale:1.1;
+    ${Tooltip} {
    
     font-weight: bold;
     font-size: 120%;
     
   }
+
+  
+
+}
 `;
 
 
@@ -124,12 +130,12 @@ const SideBar=()=>{
 
             </LogoContainer>
 
-            <Sub><span>Subscribe</span></Sub> 
+            <Sub><span>Subscribe {`>`}</span></Sub> 
 
             <IconContainer onMouseEnter={handleIconHover}
           onMouseLeave={handleIconLeave}>
               <IconWrapper>
-        <img src={user}   fill='white' alt="" />
+        <img  src={user}   fill='white' alt="" />
         <Tooltip visible={tooltipVisible}>My Space</Tooltip>
         </IconWrapper>
        <IconWrapper>

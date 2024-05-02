@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const TitleDiv=styled.div`
 position: absolute;
 // top: 20px; 
@@ -76,6 +77,9 @@ margin-left:15px;
 
 
 
+
+
+
 const Title=()=>{
     return(
         <TitleDiv>
@@ -88,8 +92,11 @@ const Title=()=>{
 
          <h4>Romance | Drama | RomCom | Couples</h4>
 
+
          <SButton><BtnTxt>Subscribe to Watch</BtnTxt></SButton>
          <PButton><BtnTxt>+</BtnTxt></PButton>
+       
+
 
             
      

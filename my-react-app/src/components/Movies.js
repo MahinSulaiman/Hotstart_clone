@@ -23,7 +23,7 @@ overflow: clip;
 
     width :150px;
     height:200px;
-    background-color:red;
+    background-color:black;
     // margin:150px;
     transition: transform 0.5s ease-in-out;
 
@@ -56,12 +56,15 @@ const Overlay = styled.div`
 const Button = styled.button`
   width:100px;
   height:25px;
-  background-color: green;
+  background-color: white;
   color: #333;
   border: none;
   // padding: 5px 8px;
   cursor: pointer;
   border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+ 
 `;
 
 const Text = styled.p`
@@ -69,6 +72,7 @@ const Text = styled.p`
   margin: 0;
   padding: 5px 2px;
   font-size:8px;
+
   
 `;
 
@@ -76,12 +80,14 @@ const SmallButton = styled.button`
 border-radius: 5px;
   height:25px;
   width:30px;
-  background-color: lightblue;
+  background-color: grey;
   color: #333;
   border: none;
-  // padding: 4px 5px;  /* Adjust padding as needed */
+
   margin-left:5px;
   cursor: pointer;
+  text-decoration: none;
+ 
 `;
  const SmallText=styled.p`
   
@@ -167,8 +173,10 @@ const MovieList = ({ movieDataURL }) =>{
 
             {hoveredIndex === index+scrollPosition && (
             <Overlay>
-              <Button>Click me</Button>
+              <div style={{display:"flex"}}>
+              <Button ><h3 style={{fontWeight:"bold",fontSize:8}}>Watch Now</h3></Button>
               <SmallButton>+</SmallButton>
+              </div>
 
               <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
              
