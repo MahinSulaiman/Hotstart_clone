@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import Footer from "../Footer/Footer";
 
 
 
@@ -8,6 +9,8 @@ import Title from "../Title/Title";
 import MovieList from "../Movies/Movies";
 import ImgSlider from "../ImgSlider/ImgSlider";
 import { HomeDiv,Background,ListDiv,Heading,Slider } from "./Home_Style";
+import Languages from "../Languages/Languages";
+
 
 
 const Home = () => {
@@ -56,11 +59,17 @@ const Home = () => {
 
         <Heading>Horror Movies</Heading>
         <MovieList movieDataURL="https://api.sampleapis.com/movies/horror" />
+
+        <Heading>Popular Languages</Heading>
+        <Languages/>
       </ListDiv>
       <Slider>
         <ImgSlider />
       </Slider>
+      <Footer/>
+     
     </HomeDiv>
+  
   );
 };
 

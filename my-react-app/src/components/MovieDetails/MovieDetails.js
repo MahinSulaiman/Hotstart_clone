@@ -1,25 +1,58 @@
 import React from "react";
 import styled from "styled-components";
-import image from "../../images/image.jpeg"
+import Title from "../Title/Title";
+import SideBar from "../Sidebar/Sidebar";
+import { useLocation } from "react-router-dom";
 
-
-const Background=styled.div`
-   background-image:url('https://img10.hotstar.com/image/upload/f_auto,q_90,w_256/sources/r1/cms/prod/3643/1373643-i-a6da93287db6');
-   width: 100%;
-   height:100%;
-
+const Background = styled.div`
+  background-image: url(${(props) => props.movieUrl});
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
-const MovieDetails=()=>{
+const Container = styled.div`
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`;
 
-    return(
+const DarkOverlay = styled.div`
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 20%,
+    transparent 100%
+  );
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 
+const MovieDetails = () => {
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const movieUrl = urlParams.get("url");
 
-        <Background>
-            <h1>hello</h1>
-            
-            </Background>
-    );
-}
+  return (
+    <Container>
+      <Background movieUrl={movieUrl}>
+        <DarkOverlay />
+
+        <SideBar />
+        <Title />
+      </Background>
+     
+      
+    </Container>
+  );
+};
 
 export default MovieDetails;

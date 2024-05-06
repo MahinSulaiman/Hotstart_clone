@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Overlay,
@@ -67,11 +68,11 @@ const MovieList = ({ movieDataURL }) => {
               {hoveredIndex === index + scrollPosition && (
                 <Overlay>
                   <div style={{ display: "flex" }}>
-                    <Button>
+                  <Link to={`/detailed?url=${url}`}><Button>
                       <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
                         Watch Now
                       </h3>
-                    </Button>
+                    </Button></Link>
                     <SmallButton>+</SmallButton>
                   </div>
 
