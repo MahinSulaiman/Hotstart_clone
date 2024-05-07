@@ -38,7 +38,7 @@ a {
   }
 }
 
-video{
+/* video{
   width: auto;
   height: 100vh;
   object-fit: fill;
@@ -48,7 +48,7 @@ video{
   
   position: absolute;
   
-}
+} */
 
 
 @tailwind base;

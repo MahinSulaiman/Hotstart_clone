@@ -11,6 +11,7 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 
 
 
+
 function App() {
   return (
     
@@ -19,11 +20,13 @@ function App() {
 
       // <Home/>
       <BrowserRouter>
+      
         
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detailed" element={<MovieDetails/>} />
         </Routes>
+        {/* <Footer/> */}
       </BrowserRouter>
      
 

@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
+import Brands from "../Brands/Brands";
 
 
 
@@ -23,7 +24,7 @@ const Home = () => {
       if (prevScrollPos < currentScrollPos) {
         // Scrolling down
         document.getElementById("background-video").pause();
-        setBgColor("#040714");
+        setBgColor(" #040714");
       } else {
         // Scrolling up
         document.getElementById("background-video").play();
@@ -59,14 +60,18 @@ const Home = () => {
 
         <Heading>Horror Movies</Heading>
         <MovieList movieDataURL="https://api.sampleapis.com/movies/horror" />
+        <Brands/>
 
         <Heading>Popular Languages</Heading>
+        
         <Languages/>
+        
       </ListDiv>
       <Slider>
         <ImgSlider />
       </Slider>
       <Footer/>
+     
      
     </HomeDiv>
   

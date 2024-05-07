@@ -5,7 +5,7 @@ export const HomeDiv = styled.div`
   overflow: hidden;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.9) 20%,
+    rgba(4, 7, 20, 0.95) 20%,
     transparent 100%
   );
   background-color: ${(props) => props.bgColor};

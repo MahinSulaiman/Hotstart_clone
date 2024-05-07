@@ -82,15 +82,20 @@ export const ScrollButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
-  border: none;
+  background-color: gray; 
+  border-radius: 20px; 
   cursor: pointer;
   font-size: 20px;
-  color: black;
+  color:white;
+  font-weight: bold;
+ 
+ 
+ 
 `;
 
 export const LeftButton = styled(ScrollButton)`
   left: 0;
+  
 `;
 
 export const RightButton = styled(ScrollButton)`

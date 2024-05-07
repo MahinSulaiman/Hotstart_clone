@@ -8,8 +8,9 @@ import Slider from "react-slick";
 const ImgDiv = styled.div`
   background-color: transparent;
   width: 140px;
-  height: 120px; 
+  height: 140px; 
   margin: 0 auto; 
+  
 
   
   
@@ -22,7 +23,7 @@ const Image = styled.img`
   display: block;
   position: relative;
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 12px;
 
   &:hover {
     opacity: 1;
