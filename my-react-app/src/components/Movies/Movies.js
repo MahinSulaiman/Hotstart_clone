@@ -18,6 +18,9 @@ const MovieList = ({ movieDataURL }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   // const [visibleImages, setVisibleImages] = useState(7);
 
+
+  useEffect(() => {
+
   const getData = async () => {
     try {
       const resp = await fetch(movieDataURL);
@@ -31,10 +34,8 @@ const MovieList = ({ movieDataURL }) => {
       console.error("Error fetching data:", error);
     }
   };
-
-  useEffect(() => {
     getData();
-  }, [getData]);
+  }, [movieDataURL]);
 
   const handleLeftScroll = () => {
     setScrollPosition((prevPosition) => Math.max(0, prevPosition - 6));
