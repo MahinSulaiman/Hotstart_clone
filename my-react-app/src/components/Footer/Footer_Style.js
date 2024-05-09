@@ -8,11 +8,12 @@ export const FooterContainer = styled.footer`
   padding: 60px;
   text-align: center;
   /* margin-top: 20px; */
-  position: relative; /* Ensure the footer is positioned relative to HomeDiv */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, 100%);
+  position: relative; 
+  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, 100%); */
   padding-left: 130px;
   padding-top: 160px;
   padding-bottom: 30px;
+  z-index: 1;
 `;
 
 export const Content = styled.div`

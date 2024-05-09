@@ -7,6 +7,8 @@ import tv from "../../images/tv.svg";
 import movie from "../../images/movie.svg";
 import sports from "../../images/sports.svg";
 import category from "../../images/category.svg";
+import favourites from "../../images/favourites.svg";
+import Modal from "../Modal/Modal";
 
 import {
   IconContainer,
@@ -19,6 +21,7 @@ import {
 
 const SideBar = () => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleIconHover = () => {
     setTooltipVisible(true);
@@ -26,6 +29,14 @@ const SideBar = () => {
 
   const handleIconLeave = () => {
     setTooltipVisible(false);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
   return (
     <SidebarContainer>
@@ -80,7 +91,17 @@ const SideBar = () => {
           <img src={category} fill="white" alt="" />
           <Tooltip visible={tooltipVisible}>Categories</Tooltip>
         </IconWrapper>
+
+        <IconWrapper onClick={openModal}>
+          <img src={favourites}  fill="white" alt="" />
+          <Tooltip visible={tooltipVisible}>Favourites</Tooltip>
+        </IconWrapper>
       </IconContainer>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        {/* Modal Content */}
+        <h2>Favourites</h2>
+        <p style={{color:"black"}}>Modal Content Goes Here</p>
+      </Modal>
     </SidebarContainer>
   );
 };

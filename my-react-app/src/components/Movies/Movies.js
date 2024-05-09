@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import {
   Button,
   Overlay,
@@ -11,6 +12,13 @@ import {
   LeftButton,
   RightButton,
 } from "./Movie_Style";
+import { HiStar } from "react-icons/hi2";
+
+const Star=styled(HiStar)`
+   fill: red;
+   margin-left: 8px;
+
+`
 
 const MovieList = ({ movieDataURL }) => {
   const [imageUrls, setImageUrls] = useState([]);
@@ -75,9 +83,13 @@ const MovieList = ({ movieDataURL }) => {
                       </h3>
                     </Button></Link>
                     <SmallButton>+</SmallButton>
+                    
                   </div>
-
+                  
+                  <div style={{display:"flex"}}>
                   <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
+                  <button><Star/></button>
+                  </div>
 
                   <Text>
                     From carefree college days to becoming a successful wedding

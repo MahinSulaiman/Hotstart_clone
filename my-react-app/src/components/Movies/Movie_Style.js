@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
   position: relative;
-  display: inline-flex;
+  display: flex;
   //   justify-content: space-between;
   //   padding: 0 20px;
   gap: 20px;
   margin-left: 30px;
+  z-index: 2;
 `;
 
 export const CardDiv = styled.div`
@@ -65,6 +66,7 @@ export const SmallButton = styled.button`
   background-color: grey;
   color: #333;
   border: none;
+  margin-top: 3px;
 
   margin-left: 5px;
   cursor: pointer;

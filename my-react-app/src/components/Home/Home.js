@@ -5,7 +5,7 @@ import Brands from "../Brands/Brands";
 
 
 import video from "../../images/video.mp4";
-import SideBar from "../Sidebar/Sidebar";
+
 import Title from "../Title/Title";
 import MovieList from "../Movies/Movies";
 import ImgSlider from "../ImgSlider/ImgSlider";
@@ -76,7 +76,7 @@ const Home = () => {
         src={video}
       ></Background>
 
-      <SideBar />
+      {/* <SideBar /> */}
       <Title />
 
       <ListDiv>
@@ -96,6 +96,9 @@ const Home = () => {
         
         <Heading>Popular Genres</Heading>
         <TitleCards urls={genreUrls}/>
+
+        <heading>Popular in Kids</heading>
+        <MovieList movieDataURL="https://api.sampleapis.com/movies/animation"/>
         
         
       </ListDiv>

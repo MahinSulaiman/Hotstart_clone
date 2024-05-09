@@ -45,4 +45,7 @@ export const Slider = styled.div`
   left: 80%;
   transform: translateX(-50%);
   z-index: 2;
+  @media only screen and (max-width: 400px) {
+    display: none;
+  }
 `;

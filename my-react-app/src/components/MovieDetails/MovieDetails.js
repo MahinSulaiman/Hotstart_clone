@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../Title/Title";
-import SideBar from "../Sidebar/Sidebar";
 import { useLocation } from "react-router-dom";
 import MovieList from "../Movies/Movies";
 import Footer from "../Footer/Footer";
@@ -22,7 +21,7 @@ const MovieDetails = () => {
       <Background movieUrl={movieUrl}>
         <DarkOverlay />
 
-        <SideBar />
+        {/* <SideBar /> */}
         <Title />
       </Background>
 

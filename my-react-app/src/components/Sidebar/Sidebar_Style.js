@@ -21,7 +21,7 @@ export const SidebarContainer = styled.div`
   align-items: center;
   background-color: rgba(51, 51, 51, 0);
   // background-color:black;
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   // background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 5%, transparent 100%);
 `;

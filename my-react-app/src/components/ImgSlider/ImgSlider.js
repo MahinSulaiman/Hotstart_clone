@@ -10,11 +10,11 @@ import {ImgDiv,Image,Carousel} from "./ImgSlider_Style";
 function ImgSlider() {
   let settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 3,
-    // initialSlide: 3,
+    initialSlide: 3,
     // autoplay: true,
   };
   return (
