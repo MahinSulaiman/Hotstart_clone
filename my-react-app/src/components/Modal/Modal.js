@@ -1,5 +1,11 @@
-import React from "react";
+import { React,useContext} from "react";
 import styled from "styled-components";
+import { StarredMoviesContext } from "../Movies/StarredMoviesContext";
+
+
+
+
+
 
 
 
@@ -19,6 +25,7 @@ const ModalContainer = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 8px;
+  color: blue;
 `;
 
 const CloseButton = styled.button`
@@ -29,16 +36,33 @@ const CloseButton = styled.button`
   background: none;
   font-size: 20px;
   cursor: pointer;
+ background-color: black;
 `;
 
 const Modal = ({ isOpen, onClose, children }) => {
+    const { starredMovies } = useContext(StarredMoviesContext);
+
+
+
+
   if (!isOpen) return null;
 
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContainer onClick={(e) => e.stopPropagation()}>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        {children}
+        <CloseButton onClick={onClose}>hello</CloseButton>
+       <div style={{display:"flex"}}>
+      <h2>Starred Movies</h2>
+      
+        {starredMovies.map((movieUrl, index) => (
+          <img src={movieUrl} key={index}></img >
+        ))}
+      
+    </div>
+        {/* {children} */}
+        {/* <img src={image} alt=""/> */}
+       
+
       </ModalContainer>
     </ModalOverlay>
   );

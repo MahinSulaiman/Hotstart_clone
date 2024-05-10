@@ -58,6 +58,10 @@ export const Tooltip = styled.span`
 
 export const IconWrapper = styled.div`
   position: relative;
+  #count{
+    background-color: red;
+    
+  }
 
   &:hover {
     scale: 1.1;

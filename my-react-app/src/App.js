@@ -6,6 +6,8 @@ import Home from './components/Home/Home';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import SideBar from './components/Sidebar/Sidebar';
+import { StarredMoviesProvider } from './components/Movies/StarredMoviesContext';
+
 
 
 
@@ -20,6 +22,8 @@ function App() {
    
 
       // <Home/>
+      <StarredMoviesProvider>
+    
       <BrowserRouter>
       
         <SideBar/>
@@ -29,6 +33,8 @@ function App() {
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>
+      </StarredMoviesProvider>
+      
      
 
       

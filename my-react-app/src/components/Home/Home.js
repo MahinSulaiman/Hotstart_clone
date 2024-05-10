@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState} from "react";
 import Footer from "../Footer/Footer";
 import Brands from "../Brands/Brands";
 
@@ -13,6 +13,7 @@ import { HomeDiv,Background,ListDiv,Heading,Slider } from "./Home_Style";
 
 
 import TitleCards from "../TitleCards/TitleCards";
+// import { StarredMoviesProvider } from "../Movies/StarredMoviesContext";
 
 
 
@@ -82,7 +83,10 @@ const Home = () => {
       <ListDiv>
         <Heading>Family Movies</Heading>
 
+        
+
         <MovieList movieDataURL="https://api.sampleapis.com/movies/family" />
+
 
         <Heading>Comedy Movies</Heading>
         <MovieList movieDataURL="https://api.sampleapis.com/movies/comedy" />
@@ -99,6 +103,7 @@ const Home = () => {
 
         <heading>Popular in Kids</heading>
         <MovieList movieDataURL="https://api.sampleapis.com/movies/animation"/>
+        
         
         
       </ListDiv>

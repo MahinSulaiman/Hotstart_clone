@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState ,useContext} from "react";
 
 import user from "../../images/user.svg";
 import search from "../../images/search.svg";
@@ -9,6 +9,7 @@ import sports from "../../images/sports.svg";
 import category from "../../images/category.svg";
 import favourites from "../../images/favourites.svg";
 import Modal from "../Modal/Modal";
+import { StarredMoviesContext } from "../Movies/StarredMoviesContext";
 
 import {
   IconContainer,
@@ -20,8 +21,13 @@ import {
 } from "./Sidebar_Style";
 
 const SideBar = () => {
+
+  const { starredMovies } = useContext(StarredMoviesContext);
+ 
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const count=starredMovies.length;
 
   const handleIconHover = () => {
     setTooltipVisible(true);
@@ -93,14 +99,17 @@ const SideBar = () => {
         </IconWrapper>
 
         <IconWrapper onClick={openModal}>
+          <span id="count">{count}</span>
           <img src={favourites}  fill="white" alt="" />
+          
           <Tooltip visible={tooltipVisible}>Favourites</Tooltip>
         </IconWrapper>
-      </IconContainer>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      </IconContainer >
+      <Modal isOpen={isModalOpen} onClose={closeModal}  >
+
         {/* Modal Content */}
         <h2>Favourites</h2>
-        <p style={{color:"black"}}>Modal Content Goes Here</p>
+        <p >Modal Content Goes Here</p>
       </Modal>
     </SidebarContainer>
   );

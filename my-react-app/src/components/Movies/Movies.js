@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
@@ -13,20 +13,29 @@ import {
   RightButton,
 } from "./Movie_Style";
 import { HiStar } from "react-icons/hi2";
+import { StarredMoviesContext } from "./StarredMoviesContext";
 
 const Star=styled(HiStar)`
-   fill: red;
-   margin-left: 8px;
+   fill: ${(props) => (props.filled ? "red" : "grey")};
+  margin-left: 8px;
+  cursor: pointer;
 
 `
+
+
+
+
+
 
 const MovieList = ({ movieDataURL }) => {
   const [imageUrls, setImageUrls] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  // const [starredMovies, setStarredMovies] = useState([]);
+  const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
   // const [visibleImages, setVisibleImages] = useState(7);
 
-
+console.log(starredMovies)
   useEffect(() => {
 
   const getData = async () => {
@@ -53,6 +62,14 @@ const MovieList = ({ movieDataURL }) => {
     setScrollPosition((prevPosition) =>
       Math.min(prevPosition + 6, imageUrls.length - 6)
     );
+  };
+
+  const toggleStarred = (url) => {
+    if (starredMovies.includes(url)) {
+      setStarredMovies(starredMovies.filter((movieUrl) => movieUrl !== url));
+    } else {
+      setStarredMovies([...starredMovies, url]);
+    }
   };
 
   return (
@@ -88,7 +105,10 @@ const MovieList = ({ movieDataURL }) => {
                   
                   <div style={{display:"flex"}}>
                   <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
-                  <button><Star/></button>
+                  <button ><Star
+                    filled={starredMovies.includes(url)}
+                    onClick={() => toggleStarred(url)}
+                  /></button>
                   </div>
 
                   <Text>
@@ -107,5 +127,6 @@ const MovieList = ({ movieDataURL }) => {
     </>
   );
 };
+
 
 export default MovieList;
