@@ -1,26 +1,7 @@
-import { React, useState, useEffect,useContext } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import {
-  Button,
-  Overlay,
-  SmallButton,
-  ContainerDiv,
-  CardDiv,
-  SmallText,
-  Text,
-  LeftButton,
-  RightButton,
-} from "./Movie_Style";
-import { HiStar } from "react-icons/hi2";
-import { StarredMoviesContext } from "./StarredMoviesContext";
+import { React, useState, useEffect} from "react";
+import DisplayMovie from "./DisplayMovie";
 
-const Star=styled(HiStar)`
-   fill: ${(props) => (props.filled ? "red" : "grey")};
-  margin-left: 8px;
-  cursor: pointer;
 
-`
 
 
 
@@ -29,13 +10,13 @@ const Star=styled(HiStar)`
 
 const MovieList = ({ movieDataURL }) => {
   const [imageUrls, setImageUrls] = useState([]);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  // const [starredMovies, setStarredMovies] = useState([]);
-  const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
+  // const [hoveredIndex, setHoveredIndex] = useState(null);
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // // const [starredMovies, setStarredMovies] = useState([]);
+  // const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
   // const [visibleImages, setVisibleImages] = useState(7);
 
-console.log(starredMovies)
+// console.log(starredMovies)
   useEffect(() => {
 
   const getData = async () => {
@@ -54,79 +35,12 @@ console.log(starredMovies)
     getData();
   }, [movieDataURL]);
 
-  const handleLeftScroll = () => {
-    setScrollPosition((prevPosition) => Math.max(0, prevPosition - 6));
-  };
-
-  const handleRightScroll = () => {
-    setScrollPosition((prevPosition) =>
-      Math.min(prevPosition + 6, imageUrls.length - 6)
-    );
-  };
-
-  const toggleStarred = (url) => {
-    if (starredMovies.includes(url)) {
-      setStarredMovies(starredMovies.filter((movieUrl) => movieUrl !== url));
-    } else {
-      setStarredMovies([...starredMovies, url]);
-    }
-  };
-
-  return (
-    <>
-      <ContainerDiv>
-        {imageUrls
-          .slice(scrollPosition, scrollPosition + 7)
-          .map((url, index) => (
-            <CardDiv
-              key={index + scrollPosition}
-              onMouseEnter={() => setHoveredIndex(index + scrollPosition)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <img
-                key={index}
-                src={url}
-                alt={`Movie Poster ${index}`}
-                height="200px"
-                width="150px"
-              />
-
-              {hoveredIndex === index + scrollPosition && (
-                <Overlay>
-                  <div style={{ display: "flex" }}>
-                  <Link to={`/detailed?url=${url}`}><Button>
-                      <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
-                        Watch Now
-                      </h3>
-                    </Button></Link>
-                    <SmallButton>+</SmallButton>
-                    
-                  </div>
-                  
-                  <div style={{display:"flex"}}>
-                  <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
-                  <button ><Star
-                    filled={starredMovies.includes(url)}
-                    onClick={() => toggleStarred(url)}
-                  /></button>
-                  </div>
-
-                  <Text>
-                    From carefree college days to becoming a successful wedding
-                    photographer, this coming-of-age story depicts the colours
-                    of Arun Neelakandan's exciting life.
-                  </Text>
-                </Overlay>
-              )}
-            </CardDiv>
-          ))}
-
-        <LeftButton onClick={handleLeftScroll}>{"<"}</LeftButton>
-        <RightButton onClick={handleRightScroll}>{">"}</RightButton>
-      </ContainerDiv>
-    </>
+  return(
+    <div>
+     <DisplayMovie imageUrls={imageUrls}/>
+    </div>
   );
-};
+}
 
 
 export default MovieList;

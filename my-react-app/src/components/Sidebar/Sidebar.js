@@ -99,7 +99,7 @@ const SideBar = () => {
         </IconWrapper>
 
         <IconWrapper onClick={openModal}>
-          <span id="count">{count}</span>
+        {count !== 0 && <span id="count">{count}</span>}
           <img src={favourites}  fill="white" alt="" />
           
           <Tooltip visible={tooltipVisible}>Favourites</Tooltip>

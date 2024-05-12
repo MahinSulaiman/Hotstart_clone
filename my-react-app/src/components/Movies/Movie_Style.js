@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { HiStar } from "react-icons/hi2";
 
 export const ContainerDiv = styled.div`
   position: relative;
@@ -103,3 +104,10 @@ export const LeftButton = styled(ScrollButton)`
 export const RightButton = styled(ScrollButton)`
   right: 100px;
 `;
+
+export const Star=styled(HiStar)`
+   fill: ${(props) => (props.filled ? "red" : "grey")};
+  margin-left: 8px;
+  cursor: pointer;
+
+`

@@ -60,7 +60,11 @@ export const IconWrapper = styled.div`
   position: relative;
   #count{
     background-color: red;
-    
+    color:white;
+    border-radius:1em;
+    padding: 0.3em 0.6em;
+    fontSize: 0.8em;    
+    fontWeight: bold ;
   }
 
   &:hover {

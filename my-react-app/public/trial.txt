@@ -1,63 +1,4 @@
-import { React, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import {
-  Button,
-  Overlay,
-  SmallButton,
-  ContainerDiv,
-  CardDiv,
-  SmallText,
-  Text,
-  LeftButton,
-  RightButton,
-} from "./Movie_Style";
-import { HiStar } from "react-icons/hi2";
-
-const Star=styled(HiStar)`
-   fill: red;
-   margin-left: 8px;
-
-`
-
-const MovieList = ({ movieDataURL }) => {
-  const [imageUrls, setImageUrls] = useState([]);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  // const [visibleImages, setVisibleImages] = useState(7);
-
-
-  useEffect(() => {
-
-  const getData = async () => {
-    try {
-      const resp = await fetch(movieDataURL);
-      const movies = await resp.json();
-
-      // Extract image URLs from movie data
-      const urls = movies.map((movie) => movie.posterURL);
-
-      setImageUrls(urls);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-    getData();
-  }, [movieDataURL]);
-
-  const handleLeftScroll = () => {
-    setScrollPosition((prevPosition) => Math.max(0, prevPosition - 6));
-  };
-
-  const handleRightScroll = () => {
-    setScrollPosition((prevPosition) =>
-      Math.min(prevPosition + 6, imageUrls.length - 6)
-    );
-  };
-
-  return (
-    <>
-      <ContainerDiv>
+<ContainerDiv>
         {imageUrls
           .slice(scrollPosition, scrollPosition + 7)
           .map((url, index) => (
@@ -88,7 +29,10 @@ const MovieList = ({ movieDataURL }) => {
                   
                   <div style={{display:"flex"}}>
                   <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
-                  <button><Star/></button>
+                  <button ><Star
+                    filled={starredMovies.includes(url)}
+                    onClick={() => toggleStarred(url)}
+                  /></button>
                   </div>
 
                   <Text>
@@ -101,11 +45,9 @@ const MovieList = ({ movieDataURL }) => {
             </CardDiv>
           ))}
 
-        <LeftButton onClick={handleLeftScroll}>{"<"}</LeftButton>
-        <RightButton onClick={handleRightScroll}>{">"}</RightButton>
+{!isLessThanSeven && <LeftButton onClick={handleLeftScroll}>{"<"}</LeftButton>}
+        {!isLessThanSeven && <RightButton onClick={handleRightScroll}>{">"}</RightButton>}
       </ContainerDiv>
     </>
   );
 };
-
-export default MovieList;
