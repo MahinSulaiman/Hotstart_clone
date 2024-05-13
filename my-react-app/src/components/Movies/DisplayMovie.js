@@ -1,4 +1,4 @@
-import React,{useState,useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -10,17 +10,15 @@ import {
   Text,
   LeftButton,
   RightButton,
-  Star
+  Star,
 } from "./Movie_Style";
 import { StarredMoviesContext } from "./StarredMoviesContext";
 
-const DisplayMovie=({imageUrls})=>{
-
+const DisplayMovie = ({ imageUrls }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   // const [starredMovies, setStarredMovies] = useState([]);
   const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
-
 
   const handleLeftScroll = () => {
     setScrollPosition((prevPosition) => Math.max(0, prevPosition - 6));
@@ -45,64 +43,66 @@ const DisplayMovie=({imageUrls})=>{
   return (
     <>
       <ContainerDiv>
-  {imageUrls.length === 0 ? (
-    <h1>No items to show</h1>
-  ) : (
-    imageUrls.slice(scrollPosition, scrollPosition + 7).map((url, index) => (
-      <CardDiv
-        key={index + scrollPosition}
-        onMouseEnter={() => setHoveredIndex(index + scrollPosition)}
-        onMouseLeave={() => setHoveredIndex(null)}
-      >
-        <img
-          key={index}
-          src={url}
-          alt={`Movie Poster ${index}`}
-          height="200px"
-          width="150px"
-        />
-
-        {hoveredIndex === index + scrollPosition && (
-          <Overlay>
-            <div style={{ display: "flex" }}>
-              <Link to={`/detailed?url=${url}`}>
-                <Button>
-                  <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
-                    Watch Now
-                  </h3>
-                </Button>
-              </Link>
-              <SmallButton>+</SmallButton>
-            </div>
-            <div style={{ display: "flex" }}>
-              <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
-              <button>
-                <Star
-                  filled={starredMovies.includes(url)}
-                  onClick={() => toggleStarred(url)}
+        {imageUrls.length === 0 ? (
+          <h6>No items to show</h6>
+        ) : (
+          imageUrls
+            .slice(scrollPosition, scrollPosition + 7)
+            .map((url, index) => (
+              <CardDiv
+                key={index + scrollPosition}
+                onMouseEnter={() => setHoveredIndex(index + scrollPosition)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <img
+                  key={index}
+                  src={url}
+                  alt={`Movie Poster ${index}`}
+                  height="200px"
+                  width="150px"
                 />
-              </button>
-            </div>
-            <Text>
-              From carefree college days to becoming a successful wedding
-              photographer, this coming-of-age story depicts the colours of
-              Arun Neelakandan's exciting life.
-            </Text>
-          </Overlay>
+
+                {hoveredIndex === index + scrollPosition && (
+                  <Overlay>
+                    <div style={{ display: "flex" }}>
+                      <Link to={`/detailed?url=${url}`}>
+                        <Button>
+                          <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
+                            Watch Now
+                          </h3>
+                        </Button>
+                      </Link>
+                      <SmallButton>+</SmallButton>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <SmallText>2024-2h.12m-Hindi-U/A16+</SmallText>
+                      <button>
+                        <Star
+                          filled={starredMovies.includes(url)}
+                          onClick={() => toggleStarred(url)}
+                        />
+                      </button>
+                    </div>
+                    <Text>
+                      From carefree college days to becoming a successful
+                      wedding photographer, this coming-of-age story depicts the
+                      colours of Arun Neelakandan's exciting life.
+                    </Text>
+                  </Overlay>
+                )}
+              </CardDiv>
+            ))
         )}
-      </CardDiv>
-    ))
-  )}
 
-  {!isLessThanSeven && <LeftButton onClick={handleLeftScroll}>{"<"}</LeftButton>}
-  {!isLessThanSeven && <RightButton onClick={handleRightScroll}>{">"}</RightButton>}
-</ContainerDiv>
-
+        {!isLessThanSeven && (
+          <LeftButton onClick={handleLeftScroll}>{"<"}</LeftButton>
+        )}
+        {!isLessThanSeven && (
+          <RightButton onClick={handleRightScroll}>{">"}</RightButton>
+        )}
+      </ContainerDiv>
     </>
   );
 };
 
 export default DisplayMovie;
-
-
-

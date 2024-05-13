@@ -14,7 +14,7 @@ export const Sub = styled.button`
 `;
 
 export const SidebarContainer = styled.div`
-  width: 110px;
+  width: 9vw;
   height: 100vh;
   background-color: #333;
   // padding: 20px;
@@ -63,8 +63,8 @@ export const IconWrapper = styled.div`
     color:white;
     border-radius:1em;
     padding: 0.3em 0.6em;
-    fontSize: 0.8em;    
-    fontWeight: bold ;
+    font-size: 0.8em;    
+    font-weight: bold ;
   }
 
   &:hover {
