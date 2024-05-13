@@ -14,6 +14,8 @@ export const Image = styled.img`
   position: relative;
   padding: 4px;
   border-radius: 6px;
+  
+  
 
   &:hover {
     opacity: 1;

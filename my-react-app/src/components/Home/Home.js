@@ -1,15 +1,13 @@
-import { React, useEffect, useState} from "react";
+import { React, useEffect, useState,useCallback} from "react";
 import Footer from "../Footer/Footer";
 import Brands from "../Brands/Brands";
-
-
-
-import video from "../../images/video.mp4";
 
 import Title from "../Title/Title";
 import MovieList from "../Movies/Movies";
 import ImgSlider from "../ImgSlider/ImgSlider";
-import { HomeDiv,Background,ListDiv,Heading,Slider } from "./Home_Style";
+import { HomeDiv,ListDiv,Heading,Slider } from "./Home_Style";
+import BackgroundVideo from "./BackgoundVideo";
+import video from "../../images/video.mp4";
 
 
 import TitleCards from "../TitleCards/TitleCards";
@@ -20,15 +18,22 @@ import TitleCards from "../TitleCards/TitleCards";
 const Home = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [bgColor, setBgColor] = useState("transparent");
+  const [videoUrl, setVideoUrl] = useState(video);
+
+  const changeVideo = useCallback((newUrl) => {
+    setVideoUrl(newUrl);
+  }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollPos < currentScrollPos) {
+      const currentScrollPos = window.scrollY;
+      if (currentScrollPos>200) {
         // Scrolling down
         document.getElementById("background-video").pause();
         setBgColor(" #040714");
-      } else {
+      } 
+      else {
         // Scrolling up
         document.getElementById("background-video").play();
         setBgColor("transparent");
@@ -69,13 +74,14 @@ const Home = () => {
 
   return (
     <HomeDiv bgColor={bgColor}>
-      <Background
+      {/* <Background
         id="background-video"
         autoPlay
         muted
         loop
         src={video}
-      ></Background>
+      ></Background> */}
+      <BackgroundVideo videoUrl={videoUrl}/>
 
       {/* <SideBar /> */}
       <Title />
@@ -108,7 +114,7 @@ const Home = () => {
         
       </ListDiv>
       <Slider>
-        <ImgSlider />
+        <ImgSlider onVideoChange={changeVideo} />
       </Slider>
       <Footer/>
      

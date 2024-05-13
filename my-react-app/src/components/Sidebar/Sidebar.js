@@ -29,21 +29,17 @@ const SideBar = () => {
 
   const count=starredMovies.length;
 
-  const handleIconHover = () => {
-    setTooltipVisible(true);
-  };
+//   const handleIconHover = (isVisible) => {
+//   setTooltipVisible(isVisible);
+// };
 
-  const handleIconLeave = () => {
-    setTooltipVisible(false);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
   return (
     <SidebarContainer>
       <LogoContainer>
@@ -62,8 +58,8 @@ const SideBar = () => {
       </Sub>
 
       <IconContainer
-        onMouseEnter={handleIconHover}
-        onMouseLeave={handleIconLeave}
+         onMouseEnter={() =>  setTooltipVisible(true)}
+         onMouseLeave={() =>  setTooltipVisible(false)}
       >
         <IconWrapper>
           <img src={user} fill="white" alt="" />
@@ -98,18 +94,16 @@ const SideBar = () => {
           <Tooltip visible={tooltipVisible}>Categories</Tooltip>
         </IconWrapper>
 
-        <IconWrapper onClick={openModal}>
+        <IconWrapper onClick={()=>setIsModalOpen(true)}>
         {count !== 0 && <span id="count">{count}</span>}
           <img src={favourites}  fill="white" alt="" />
           
           <Tooltip visible={tooltipVisible}>Favourites</Tooltip>
         </IconWrapper>
       </IconContainer >
-      <Modal isOpen={isModalOpen} onClose={closeModal}  >
+      <Modal isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}  >
 
-        {/* Modal Content */}
-        <h2>Favourites</h2>
-        <p >Modal Content Goes Here</p>
+        
       </Modal>
     </SidebarContainer>
   );
