@@ -1,6 +1,5 @@
-import React from "react";
+import React,{useContext} from "react";
 import Title from "../Title/Title";
-import { useLocation } from "react-router-dom";
 import MovieList from "../Movies/Movies";
 import Footer from "../Footer/Footer";
 import {
@@ -10,15 +9,14 @@ import {
   Content,
   Heading,
 } from "./MovieDetails_Style";
+import { SelectedMovieContext } from "./SelectedMoviesContext";
 
 const MovieDetails = () => {
-  const location = useLocation();
-  const urlParams = new URLSearchParams(location.search);
-  const movieUrl = urlParams.get("url");
-
+  const { selectedMovie } = useContext(SelectedMovieContext);
+  
   return (
     <Container>
-      <Background movieUrl={movieUrl}>
+      <Background movieUrl={selectedMovie}>
         <DarkOverlay />
 
         {/* <SideBar /> */}

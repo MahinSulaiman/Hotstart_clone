@@ -18,8 +18,8 @@ const Modal = ({ isOpen, onClose }) => {
         </Header>
 
         
-<Content onClick={onClose}>
-        <DisplayMovie imageUrls={imageUrlsArray} />
+<Content >
+        <DisplayMovie imageUrls={imageUrlsArray} onClose={onClose} />
         </Content>
       </ModalContainer>
     </ModalOverlay>

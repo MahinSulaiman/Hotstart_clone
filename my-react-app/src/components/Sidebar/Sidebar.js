@@ -48,8 +48,8 @@ const SideBar = () => {
           src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg"
           class=""
           aria-hidden="false"
-          width={"50px"}
-          height={"35px"}
+          
+         
         />
       </LogoContainer>
 

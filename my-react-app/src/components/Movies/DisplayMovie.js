@@ -13,12 +13,19 @@ import {
   Star,
 } from "./Movie_Style";
 import { StarredMoviesContext } from "./StarredMoviesContext";
+import { SelectedMovieContext } from "../MovieDetails/SelectedMoviesContext";
 
-const DisplayMovie = ({ imageUrls }) => {
+const DisplayMovie = ({ imageUrls ,onClose}) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   // const [starredMovies, setStarredMovies] = useState([]);
   const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
+  const { setSelectedMovie } = useContext(SelectedMovieContext);
+
+  const handleSelectMovie = (url) => {
+    setSelectedMovie(url);
+  };
+
 
   const handleLeftScroll = () => {
     setScrollPosition((prevPosition) => Math.max(0, prevPosition - 6));
@@ -35,6 +42,13 @@ const DisplayMovie = ({ imageUrls }) => {
       setStarredMovies(starredMovies.filter((movieUrl) => movieUrl !== url));
     } else {
       setStarredMovies([...starredMovies, url]);
+    }
+  };
+
+  const handleCloseModal = () => {
+    
+    if (typeof onClose === 'function') {
+      onClose();
     }
   };
 
@@ -65,8 +79,8 @@ const DisplayMovie = ({ imageUrls }) => {
                 {hoveredIndex === index + scrollPosition && (
                   <Overlay>
                     <div style={{ display: "flex" }}>
-                      <Link to={`/detailed?url=${url}`}>
-                        <Button>
+                      <Link to={`/detailed`}>
+                      <Button onClick={() => { handleCloseModal(); handleSelectMovie(url); }}>
                           <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
                             Watch Now
                           </h3>

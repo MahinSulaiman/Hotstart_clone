@@ -24,6 +24,7 @@ export const CardDiv = styled.div`
     transform: scale(1.8);
     img {
       height: 75px;
+      object-fit: cover;
     }
   }
 `;
@@ -106,7 +107,7 @@ export const RightButton = styled(ScrollButton)`
 `;
 
 export const Star=styled(HiStar)`
-   fill: ${(props) => (props.filled ? "red" : "grey")};
+   fill: ${(props) => (props.filled ? "yellow" : "grey")};
   margin-left: 8px;
   cursor: pointer;
 

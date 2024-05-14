@@ -6,10 +6,10 @@ export const Sub = styled.button`
   color: orange;
   background-color: rgba(255, 165, 0, 0.2);
   margin-top: 5px;
-  font-size: small;
-  width: 88px;
-  height: 20px;
-  margin-left: 10px;
+  font-size: 1vw;
+  width: 7vw;
+  height: 3vh;
+  margin-left: 1vw;
   // opacity: 0.3;
 `;
 
@@ -30,14 +30,18 @@ export const IconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 10vh;
 
-  gap: 35px;
+  gap: 4.5vh;
 `;
 
 export const LogoContainer = styled.div`
-  padding-top: 30px;
-  padding-left: 30px;
+  padding-top: 5vh;
+  padding-left: 2.5vw;
+  img{
+    width: 4vw;
+    height: 6vh;
+  }
 `;
 
 export const Tooltip = styled.span`
@@ -58,6 +62,10 @@ export const Tooltip = styled.span`
 
 export const IconWrapper = styled.div`
   position: relative;
+  img{
+    width: 1.8vw;
+    height: 4vh;
+  }
   #count{
     background-color: red;
     color:white;
