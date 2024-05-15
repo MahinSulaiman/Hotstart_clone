@@ -16,7 +16,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detailed" element={<MovieDetails />} />
+          <Route path="/detailed/:title" element={<MovieDetails />} />
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>

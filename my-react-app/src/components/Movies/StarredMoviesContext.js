@@ -6,10 +6,11 @@ export const StarredMoviesContext = createContext();
 
 export const StarredMoviesProvider = ({ children }) => {
   const [starredMovies, setStarredMovies] = useState([]);
+  const [heads, setHeads] = useState([]);
   
 
   return (
-    <StarredMoviesContext.Provider value={{ starredMovies, setStarredMovies }}>
+    <StarredMoviesContext.Provider value={{ starredMovies, setStarredMovies ,heads,setHeads}}>
       {children}
     </StarredMoviesContext.Provider>
   );

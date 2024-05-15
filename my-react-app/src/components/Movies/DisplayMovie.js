@@ -15,11 +15,11 @@ import {
 import { StarredMoviesContext } from "./StarredMoviesContext";
 import { SelectedMovieContext } from "../MovieDetails/SelectedMoviesContext";
 
-const DisplayMovie = ({ imageUrls ,onClose}) => {
+const DisplayMovie = ({ imageUrls ,titles,onClose}) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   // const [starredMovies, setStarredMovies] = useState([]);
-  const { starredMovies, setStarredMovies } = useContext(StarredMoviesContext);
+  const { starredMovies, setStarredMovies ,heads,setHeads} = useContext(StarredMoviesContext);
   const { setSelectedMovie } = useContext(SelectedMovieContext);
 
   const handleSelectMovie = (url) => {
@@ -37,11 +37,13 @@ const DisplayMovie = ({ imageUrls ,onClose}) => {
     );
   };
 
-  const toggleStarred = (url) => {
+  const toggleStarred = (url,head) => {
     if (starredMovies.includes(url)) {
       setStarredMovies(starredMovies.filter((movieUrl) => movieUrl !== url));
+      setHeads(heads.filter((title) => title !== head));
     } else {
       setStarredMovies([...starredMovies, url]);
+      setHeads([...heads,head])
     }
   };
 
@@ -78,7 +80,7 @@ const DisplayMovie = ({ imageUrls ,onClose}) => {
                 {hoveredIndex === index + scrollPosition && (
                   <Overlay>
                     <div style={{ display: "flex" }}>
-                      <Link to={`/detailed`}>
+                      <Link to={`/detailed/${titles[index]}`}>
                       <Button onClick={() => { handleCloseModal(); handleSelectMovie(url); }}>
                           <h3 >
                             Watch Now
@@ -92,7 +94,7 @@ const DisplayMovie = ({ imageUrls ,onClose}) => {
                       <button>
                         <Star
                           filled={starredMovies.includes(url)}
-                          onClick={() => toggleStarred(url)}
+                          onClick={() => toggleStarred(url,titles[index])}
                         />
                       </button>
                     </div>

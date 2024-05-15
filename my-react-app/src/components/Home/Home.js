@@ -7,7 +7,7 @@ import MovieList from "../Movies/Movies";
 import ImgSlider from "../ImgSlider/ImgSlider";
 import { HomeDiv,ListDiv,Heading,Slider } from "./Home_Style";
 import BackgroundVideo from "./BackgoundVideo";
-import video from "../../images/video.mp4";
+import hridayam from "../../images/hridayam.mp4";
 
 
 import TitleCards from "../TitleCards/TitleCards";
@@ -16,12 +16,14 @@ import TitleCards from "../TitleCards/TitleCards";
 
 
 const Home = () => {
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [bgColor, setBgColor] = useState("transparent");
-  const [videoUrl, setVideoUrl] = useState(video);
+  const [videoUrl, setVideoUrl] = useState(hridayam);
+  const [imgUrl,setImgUrl]=useState("https://img10.hotstar.com/image/upload/f_auto,h_124/sources/r1/cms/prod/6589/1366589-t-d3c00f1f2831")
 
-  const changeVideo = useCallback((newUrl) => {
+  const changeVideo = useCallback((newUrl,newImg) => {
     setVideoUrl(newUrl);
+    setImgUrl(newImg)
   }, []);
 
 
@@ -84,7 +86,7 @@ const Home = () => {
       <BackgroundVideo videoUrl={videoUrl}/>
 
       {/* <SideBar /> */}
-      <Title />
+      <Title imgUrl={imgUrl} />
 
       <ListDiv>
         <Heading>Family Movies</Heading>

@@ -29,17 +29,7 @@ const SideBar = () => {
 
   const count=starredMovies.length;
 
-//   const handleIconHover = (isVisible) => {
-//   setTooltipVisible(isVisible);
-// };
 
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
   return (
     <SidebarContainer>
       <LogoContainer>

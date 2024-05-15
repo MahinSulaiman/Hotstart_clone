@@ -3,6 +3,7 @@ import DisplayMovie from "./DisplayMovie";
 
 const MovieList = ({ movieDataURL }) => {
   const [imageUrls, setImageUrls] = useState([]);
+  const [titles,setTitles]=useState([])
 
   useEffect(() => {
     const getData = async () => {
@@ -12,8 +13,14 @@ const MovieList = ({ movieDataURL }) => {
 
         // Extract image URLs from movie data
         const urls = movies.map((movie) => movie.posterURL);
+      
 
         setImageUrls(urls);
+
+        const titles=movies.map((movie)=>movie.title)
+        setTitles(titles)
+
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -23,7 +30,7 @@ const MovieList = ({ movieDataURL }) => {
 
   return (
     <div>
-      <DisplayMovie imageUrls={imageUrls} />
+      <DisplayMovie imageUrls={imageUrls} titles={titles}/>
     </div>
   );
 };

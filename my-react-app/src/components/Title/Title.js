@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, TitleDiv, Txt, SButton, BtnTxt, PButton } from "./Title_Style";
 
-const Title = () => {
+const Title = ({imgUrl}) => {
   return (
     <TitleDiv>
       <Image
-        src="https://img10.hotstar.com/image/upload/f_auto,h_124/sources/r1/cms/prod/6589/1366589-t-d3c00f1f2831"
+        src={imgUrl}
         alt="hridayam"
       />
       <h4 >Blockbuster</h4>
