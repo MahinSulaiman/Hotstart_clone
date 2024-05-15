@@ -8,11 +8,11 @@ export const ImgDiv = styled.div`
 export const Image = styled.img`
   opacity: 0.7;
   cursor: pointer;
-  height: 50px;
-  width: 100px;
+  height: 7.9vh;
+  width: 7.7vw;
   display: block;
   position: relative;
-  padding: 4px;
+  padding: 0.3vw;
   border-radius: 6px;
   
   
@@ -27,7 +27,7 @@ export const Image = styled.img`
 export const Carousel = styled(Slider)`
   overflow: hidden;
 
-  width: 300px;
+  width: 23vw;
 
   //   margin-top: 20px;
 
@@ -50,10 +50,10 @@ export const Carousel = styled(Slider)`
   }
 
   .slick-prev {
-    left: -23px;
+    left: -1.7vw;
   }
 
   .slick-next {
-    right: -23px;
+    right: -1.7vw;
   }
 `;

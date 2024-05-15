@@ -5,7 +5,7 @@ export const Sub = styled.button`
   border-radius: 35px;
   color: orange;
   background-color: rgba(255, 165, 0, 0.2);
-  margin-top: 5px;
+  margin-top:0.8vh;
   font-size: 1vw;
   width: 7vw;
   height: 3vh;
@@ -30,7 +30,7 @@ export const IconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 8vh;
 
   gap: 4.5vh;
 `;

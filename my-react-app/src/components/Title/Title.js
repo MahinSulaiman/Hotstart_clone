@@ -8,7 +8,7 @@ const Title = () => {
         src="https://img10.hotstar.com/image/upload/f_auto,h_124/sources/r1/cms/prod/6589/1366589-t-d3c00f1f2831"
         alt="hridayam"
       />
-      <h4 style={{ color: "yellow", paddingBottom: "15px" }}>Blockbuster</h4>
+      <h4 >Blockbuster</h4>
       <h3>
         2022 . 2h 51m . Malayalam . <span>U/A 13+</span>
       </h3>
@@ -20,7 +20,7 @@ const Title = () => {
         Arun Neelakandan's exciting life.
       </Txt>
 
-      <h4>Romance | Drama | RomCom | Couples</h4>
+      <h3>Romance | Drama | RomCom | Couples</h3>
 
       <SButton>
         <BtnTxt>Subscribe to Watch</BtnTxt>

@@ -25,15 +25,15 @@ export const Background = styled.video`
 export const ListDiv = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-top: 520px;
-  padding-left: 100px;
+  gap: 2.4vh;
+  padding-top: 82vh;
+  padding-left: 7.7vw;
   //  z-index:1;
 `;
 
 export const Heading = styled.h1`
   font-weight: bold;
-  padding-left: 30px;
+  padding-left: 2.3vw;
   color: white;
 
   z-index: 3;
@@ -41,7 +41,7 @@ export const Heading = styled.h1`
 
 export const Slider = styled.div`
   position: absolute;
-  top: 440px;
+  top: 68vh;
   left: 80%;
   transform: translateX(-50%);
   z-index: 2;

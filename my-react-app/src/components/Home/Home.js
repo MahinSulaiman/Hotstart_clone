@@ -107,7 +107,7 @@ const Home = () => {
         <Heading>Popular Genres</Heading>
         <TitleCards urls={genreUrls}/>
 
-        <heading>Popular in Kids</heading>
+        <Heading>Popular in Kids</Heading>
         <MovieList movieDataURL="https://api.sampleapis.com/movies/animation"/>
         
         

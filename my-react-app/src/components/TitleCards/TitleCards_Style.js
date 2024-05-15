@@ -3,18 +3,18 @@ import Slider from "react-slick";
 
 export const ImgDiv = styled.div`
   background-color: transparent;
-  width: 140px;
-  height: 140px;
+  width: 10.8vw;
+  height: 22vh;
   margin: 0 auto;
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
   display: block;
   position: relative;
-  padding: 6px;
+  padding: 0.5vw;
   border-radius: 12px;
 
   &:hover {
@@ -26,12 +26,7 @@ export const Image = styled.img`
 export const Carousel = styled(Slider)`
   overflow: hidden;
 
-  /* width: auto;
-  height: auto; */
-  /* margin: 50px; */
-  margin-left: 20px;
-
-  //   margin-top: 20px;
+  margin-left: 1.5vw;
 
   & > button {
     opacity: 0;
@@ -56,10 +51,10 @@ export const Carousel = styled(Slider)`
   }
 
   .slick-prev {
-    left: -23px;
+    left: -1.7vw;
   }
 
   .slick-next {
-    right: -23px;
+    right: -1.7vw;
   }
 `;

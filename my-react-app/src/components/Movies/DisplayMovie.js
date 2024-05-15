@@ -72,8 +72,7 @@ const DisplayMovie = ({ imageUrls ,onClose}) => {
                   key={index}
                   src={url}
                   alt={`Movie Poster ${index}`}
-                  height="200px"
-                  width="150px"
+                  
                 />
 
                 {hoveredIndex === index + scrollPosition && (
@@ -81,7 +80,7 @@ const DisplayMovie = ({ imageUrls ,onClose}) => {
                     <div style={{ display: "flex" }}>
                       <Link to={`/detailed`}>
                       <Button onClick={() => { handleCloseModal(); handleSelectMovie(url); }}>
-                          <h3 style={{ fontWeight: "bold", fontSize: 8 }}>
+                          <h3 >
                             Watch Now
                           </h3>
                         </Button>

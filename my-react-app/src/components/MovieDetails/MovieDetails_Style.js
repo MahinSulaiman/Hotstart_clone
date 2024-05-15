@@ -38,16 +38,16 @@ export const Heading = styled.div`
   /* /* margin-top: 100px; */
   /* margin-left: 150px;  */
   display: flex;
-  gap: 50px;
+  gap: 3.9vw;
   h1 {
     font-size: large;
     font-weight: bold;
   }
 `;
 export const Content = styled.div`
-  margin-top: 100px;
-  margin-left: 150px;
+  margin-top: 15.7vh;
+  margin-left: 11.6vw;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 7.9vh;
 `;

@@ -1,22 +1,17 @@
 import styled from "styled-components";
 
-export const Container=styled.div`
-   position: relative;
-   display: flex;
-   gap: 8px;
-   margin-left: 25px;
-
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  gap: 0.6vw;
+  margin-left: 1.9vw;
 `;
-export const Cards=styled.div`
-   /* margin: 50px; */
-
+export const Cards = styled.div`
   align-items: center;
-  /* background-color:red; */
-  width: 175px;
-  height: 100px;
-  
+  width: 13.5vw;
+  height: 15.7vh;
 
-  video{
+  video {
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -26,15 +21,15 @@ export const Cards=styled.div`
   &:hover {
     scale: 1.1;
     transition: transform 0.5s ease-in-out;
-    video{
-        display: block;
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
+    video {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
     }
-    img{
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+    img {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
   }
 
@@ -43,9 +38,4 @@ export const Cards=styled.div`
     height: 100%;
     border-radius: 6px;
   }
-
-
-  
- 
 `;
-

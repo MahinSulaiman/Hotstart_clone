@@ -6,16 +6,21 @@ export const ContainerDiv = styled.div`
   display: flex;
   //   justify-content: space-between;
   //   padding: 0 20px;
-  gap: 20px;
-  margin-left: 30px;
+  gap:1.5vw;
+  margin-left: 2vw;
   z-index: 2;
 `;
 
 export const CardDiv = styled.div`
+
+img{
+  width: 12vw;
+  height: 32vh;
+}
   overflow: clip;
 
-  width: 150px;
-  height: 200px;
+  width: 12vw;
+  height: 32vh;
   background-color: black;
   // margin:150px;
   transition: transform 0.5s ease-in-out;
@@ -23,7 +28,7 @@ export const CardDiv = styled.div`
   &:hover {
     transform: scale(1.8);
     img {
-      height: 75px;
+      height: 12vh;
       object-fit: cover;
     }
   }
@@ -33,7 +38,7 @@ export const Overlay = styled.div`
   margin-left: 7px;
   position: relative;
   top: 5px;
-  bottom: 0px;
+  /* bottom: 0px; */
 
   height: auto;
   width: auto;
@@ -42,8 +47,12 @@ export const Overlay = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 100px;
-  height: 25px;
+  h3{
+    font-weight: bold;
+    font-size: 0.7vw;
+  }
+  width: 8vw;
+  height: 4vh;
   background-color: white;
   color: #333;
   border: none;
@@ -58,17 +67,17 @@ export const Text = styled.p`
   color: #fff;
   margin: 0;
   padding: 5px 2px;
-  font-size: 8px;
+  font-size: 0.6vw;
 `;
 
 export const SmallButton = styled.button`
   border-radius: 5px;
-  height: 25px;
-  width: 30px;
+  height: 4vh;
+  width: 2.3vw;
   background-color: grey;
   color: #333;
   border: none;
-  margin-top: 3px;
+  margin-top: 2px;
 
   margin-left: 5px;
   cursor: pointer;
@@ -78,7 +87,7 @@ export const SmallText = styled.p`
   padding-top: 5px;
 
   font-weight: bold;
-  font-size: 8px;
+  font-size: 0.6vw;
   text-align: justify;
 `;
 
@@ -103,12 +112,12 @@ export const LeftButton = styled(ScrollButton)`
 `;
 
 export const RightButton = styled(ScrollButton)`
-  right: 100px;
+  right: 0;
 `;
 
 export const Star=styled(HiStar)`
    fill: ${(props) => (props.filled ? "yellow" : "grey")};
-  margin-left: 8px;
+  margin-left: 1vw;
   cursor: pointer;
 
 `
